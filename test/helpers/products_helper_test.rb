@@ -48,4 +48,14 @@ class ProductsHelperTest < ActionView::TestCase
             assert new_product(name).invalid?, "#{name} shouldn't be valid"
         end
     end
+
+    test "title is too short(mininum is 10 characters)" do
+        product = Product.new(:title => "TestBook",
+                              :description => "yyy",
+                              :price => 1,
+                              :image_url => "fred.gif")
+        assert product.invalid?
+        assert_equal "is too short (minimum is 10 characters)",
+            product.errors[:title].join('; ')
+    end
 end
