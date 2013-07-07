@@ -18,7 +18,7 @@ class ProductTest < ActiveSupport::TestCase
                               :price => 1,
                               :image_url => "fred.gif")
         assert !product.save
-        assert_equal I18n.translate('activerecord.errors.messages.taken'),
+        assert_equal I18n.translate('has already been taken'),
             product.errors[:title].join('; ')
     end
 end

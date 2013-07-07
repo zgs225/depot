@@ -55,7 +55,7 @@ class ProductsHelperTest < ActionView::TestCase
                               :price => 1,
                               :image_url => "fred.gif")
         assert product.invalid?
-        assert_equal "is too short (minimum is 10 characters)",
+        assert_equal "Book' title at least 10 characters",
             product.errors[:title].join('; ')
     end
 end
